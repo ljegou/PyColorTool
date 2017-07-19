@@ -5,7 +5,7 @@
 #          Olivier Grisel <olivier.grisel@ensta.org>
 #          Mathieu Blondel <mathieu@mblondel.org>
 #
-# License: BSD 3 clause
+# License: GNU 3
 
 import os
 from flask import Flask,render_template,request
