@@ -107,8 +107,12 @@ def analyse_couleurs():
     # Figure-drawing loop
     for i in range(0, n_colors):
         ht = -((math.pi * 2) * couleurs[co[i][0]][0]) + ro # Color hue coefficient
-        x = couleurs[co[i][0]][1] * math.cos(ht) # Conversion of ht to X pos
-        y = couleurs[co[i][0]][1] * math.sin(ht) # Conversion of ht to Y pos
+        if (satlum == "sat"): # Radial axis : sat or lum component
+            ar = couleurs[co[i][0]][1]
+        else:
+            ar = couleurs[co[i][0]][2]
+        x = ar * math.cos(ht) # Conversion of ht to X pos
+        y = ar * math.sin(ht) # Conversion of ht to Y pos
         va = counts[co[i][0]] # Raw size of color bin
         ra = ((math.sqrt(va) / rcmc) / 2) * ct # Adapted size for display, relative to the max size
         at = (np.array([[couleurs[co[i][0]]]]) * 255).astype(np.uint8)
